@@ -1,11 +1,12 @@
 from django.urls import path
 from base.views.order_views import *
 
+
 urlpatterns = [
-    path('cart/', CartCreateView.as_view(), name='cart-create'),
-    path('cart/<int:pk>/', CartDetailView.as_view(), name='cart-detail'),
-    path('cart-item/', CartItemCreateView.as_view(), name='cart-item-create'),
-    path('cart-item/<int:pk>/', CartItemDetailView.as_view(), name='cart-item-detail'),
-    path('order/', OrderCreateView.as_view(), name='order-create'),
-    path('order/<int:pk>/', OrderDetailView.as_view(), name='order-detail'),
+    path('carts/', CartListCreateView.as_view(), name='cart-list-create'),
+    path('carts/<int:pk>/', CartRetrieveUpdateDestroyView.as_view(), name='cart-retrieve-update-destroy'),
+    path('cart-items/', CartItemCreateView.as_view(), name='cart-item-create'),
+    path('cart-items/<int:pk>/', CartItemRetrieveUpdateDestroyView.as_view(), name='cart-item-retrieve-update-destroy'),
+    path('orders/', OrderListCreateView.as_view(), name='order-list-create'),
+    path('orders/<int:pk>/', OrderRetrieveUpdateDestroyView.as_view(), name='order-retrieve-update-destroy'),
 ]
