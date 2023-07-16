@@ -9,12 +9,13 @@ from base.views.user_views import (
     UpdateUserView,
     DeleteUserView,
     GetUserByIdView,
+    CustomTokenObtainPairView
 )
 
 
 urlpatterns = [
     path('register/', RegisterUserView.as_view(), name='register'),
-    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('login/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('users/', GetUserView.as_view(), name='get_users'),
     path('profile/<str:username>/', UserProfileView.as_view(), name='get_user_profile'),
     path('profile/update/', UpdateUserProfileView.as_view(), name='update_user_profile'),
