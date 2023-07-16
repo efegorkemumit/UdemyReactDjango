@@ -48,7 +48,16 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         # Add custom claims
         token['username'] = user.username
         token['email'] = user.email
-        token['is_staff'] = user.is_staff
-
+        token['first_name'] = user.first_name
+        token['last_name'] = user.last_name
 
         return token
+    
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        data['username']= self.user.username
+        data['first_name']= self.user.first_name
+        data['last_name']= self.user.first_name
+        data['is_staff']= self.user.is_staff
+        return data
+
