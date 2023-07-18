@@ -33,6 +33,7 @@
 
 .header-top-left .contact {
     text-transform: uppercase;
+    margin-top: 15px;
 }
 .header-top-left .contact>a {
     color: #fa4251;
@@ -217,7 +218,7 @@
 
 .main-search {
     margin-bottom: 0;
-    width: 220px;
+    width: 100%;
     position: relative;
 }
 .main-search .input-lg {
@@ -228,6 +229,8 @@
     border-radius: 0;
     border: 1px solid #424242;
     background-color: #000;
+    margin-top: 25px;
+    
 }
 .main-search .btn-lg {
     font-size: 16px;
@@ -452,4 +455,33 @@
 .text-left
 {
     text-align: left;
+}
+
+.header-align{
+    float: right;
+
+}
+.m-top25
+{
+    margin-top: 25px;
+}
+
+@media only screen and (max-width: 776px) {
+    .header-top-align {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .header-align{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    }
+   
+}
+
+.p-left15
+{
+    padding-left: 15px;
 }

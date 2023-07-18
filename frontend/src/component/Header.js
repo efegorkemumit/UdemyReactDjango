@@ -13,28 +13,27 @@ function Headers() {
             <div className='header-top'>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-xs-12 col-sm-8'>
-                            <div className='header-top-left text-left'>
+                        <div className='col-xs-12 col-sm-6'>
+                            <div className='header-top-left text-left header-top-align'>
                                 <div className='contact'><span className='hidden-xs hidden-sm hidden-md'>Day a week from 09.00 am to 7:00 pm</span></div>
 
                             </div>
 
                         </div>
-                        <div className='col-xs-12 col-sm-4'>
-                            <div className='header-top-left text-rigt'>
+                        <div className='col-xs-12 col-sm-6 header-top-align'>
+                            <div className='header-top-left text-rigt header-align header-top-align'>
 
-                            <Nav className="me-auto ">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                            <Nav className="me-auto header-top-align ">
+            <Nav.Link href="#home"><i class="fa-solid fa-user"></i> Login</Nav.Link>
+            <Nav.Link href="#link"><i class="fa-sharp fa-solid fa-user-plus"></i> Register</Nav.Link>
+            <NavDropdown title="Username" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1"><i class="fa-solid fa-user"></i> Profile</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                Another action
+              <i class="fa-solid fa-key"></i> Change Password
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
+            
               <NavDropdown.Item href="#action/3.4">
-                Separated link
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
@@ -67,16 +66,20 @@ function Headers() {
                 
                  </div> 
                  <div className='col-xs-6 col-sm-4'>  
-                 <a className="navbar-brand" href="index.html"> <img alt="themini" src="images/logo.png"/> </a> 
+                 <img src="/images/logo.png" alt="" />
                 
                 
                  </div> 
 
                  <div className='col-xs-6 col-sm-4'>  
         
-                 <div id="cart" className="btn-group btn-block mtb_40">
+                 <div id="cart" className="btn-group btn-block mtb_40 m-top25">
+             
 
-                <button type="button" className="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true"><span id="shippingcart">Shopping cart</span><span id="cart-total">items (0)</span> </button>
+                <button type="button" className="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true">
+                    <span>   
+                 <i class="fa-sharp fa-solid fa-bag-shopping fa-2xl"></i>
+                </span><span class="p-left15">items (0)</span> </button>
                 </div>
                 
                 
@@ -89,13 +92,13 @@ function Headers() {
   <div className="container">
           <div className="row">
             <div className="col-xs-12 col-sm-12">
-          <Navbar bg="dark" data-bs-theme="dark">
+            <Navbar bg="dark" expand="lg" data-bs-theme="dark">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
+            <Nav.Link href="#home"><i class="fa-solid fa-house"></i> Home</Nav.Link>
+            <Nav.Link href="#link"><i class="fa-solid fa-heart"></i> Product</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
