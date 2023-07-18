@@ -1,4 +1,9 @@
 import React from 'react'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import '../my.css'
 
 function Headers() {
   return (
@@ -16,7 +21,26 @@ function Headers() {
 
                         </div>
                         <div className='col-xs-12 col-sm-4'>
-                            <div className='header-top-left text-rigt'></div>
+                            <div className='header-top-left text-rigt'>
+
+                            <Nav className="me-auto ">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">Link</Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+
+
+                            </div>
                             
 
 
@@ -63,26 +87,35 @@ function Headers() {
 
   </div>
   <div className="container">
-                <div className='row'>
-                <div className='col-xs-12 col-sm-4'>   
-                
-                
-                
-
-
-
-                
-                
-                </div>
-                </div>
-     </div>
-
-
-        
-
-
-
-            </div>
+          <div className="row">
+            <div className="col-xs-12 col-sm-12">
+          <Navbar bg="dark" data-bs-theme="dark">
+      <Container>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">Link</Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+    </div>
+    </div>
+      </div>
+        </div>
+     
 
         </header>
 
