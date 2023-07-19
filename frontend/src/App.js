@@ -4,6 +4,7 @@ import './bootstrap.min.css';
 import Header from './component/Header';
 import Footer from './component/Footer';
 import Slider from './component/Slider';
+import HomeScreen from './screen/HomeScreen';
 
 
 
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
      <Header/>
      <Slider></Slider>
+     <HomeScreen></HomeScreen>
 
      <div>Body</div>
 
