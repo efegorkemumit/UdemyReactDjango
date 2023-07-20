@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
      <Header/>
-     <Slider></Slider>
+
      <HomeScreen></HomeScreen>
 
      <div>Body</div>

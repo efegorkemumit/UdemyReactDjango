@@ -11,15 +11,21 @@ const ProductList = () => {
   }, []);
 
   return (
+    <div className='container'>
+    <div className='row'>
+        <div className='col-xs-12 col-sm-12'>
     <div className="product-list">
       {products.map((product) => (
         <div className="product" key={product.id}>
           <img src={product.image} alt={product.name} />
           <h3>{product.name}</h3>
           <p>{product.description}</p>
-          <p>Price: {product.price}</p>
+          <p className='price-product'>$ {product.price}</p>
         </div>
       ))}
+    </div>
+    </div>
+    </div>
     </div>
   );
 };
