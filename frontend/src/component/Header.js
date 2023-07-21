@@ -97,7 +97,7 @@ function Headers() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link className='nav-header first-l' href="#home"> HOME</Nav.Link>
+            <Nav.Link className='nav-header first-l' href="/"> HOME</Nav.Link>
            
             <NavDropdown className='nav-header' title="COLLECTION" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -111,7 +111,7 @@ function Headers() {
               </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link className='nav-header'  href="#link"> PRODUCT</Nav.Link>
-            <Nav.Link className='nav-header'  href="#link"> ABOUT US</Nav.Link>
+            <Nav.Link className='nav-header'  href="/about"> ABOUT US</Nav.Link>
             <Nav.Link className='nav-header'  href="#link"> CONTACT US</Nav.Link>
           </Nav>
         </Navbar.Collapse>

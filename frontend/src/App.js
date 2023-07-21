@@ -1,26 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
 import './bootstrap.min.css';
 import Header from './component/Header';
 import Footer from './component/Footer';
-import Slider from './component/Slider';
 import HomeScreen from './screen/HomeScreen';
-
-
+import AboutScreen from './screen/AboutScreen';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-     <Header/>
+    <Router>
+      <div className="App">
+        <Header />
 
-     <HomeScreen></HomeScreen>
+        <Routes>
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/about" element={<AboutScreen />} />
+        </Routes>
 
-
-
-
-
-     <Footer/>
-    </div>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

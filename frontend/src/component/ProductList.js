@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 const ProductList = () => {
   const [products, setProducts] = useState([]);
 
@@ -14,6 +13,7 @@ const ProductList = () => {
     <div className='container'>
     <div className='row'>
         <div className='col-xs-12 col-sm-12'>
+     
     <div className="product-list">
       {products.map((product) => (
         <div className="product" key={product.id}>
@@ -23,7 +23,9 @@ const ProductList = () => {
           <p className='price-product'>$ {product.price}</p>
         </div>
       ))}
+    
     </div>
+   
     </div>
     </div>
     </div>
