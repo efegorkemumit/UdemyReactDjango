@@ -490,7 +490,27 @@
     color: #068B08
 
 }
+#basic-nav-dropdown
+{  color: #fff;
+    font-weight: 800;
 
+}
+.header-bg{
+    background-color: #424242;
+}
+.first-l
+{
+    margin-left: 110px !important;
+}
+.nav-header{
+    color: #fff;
+    font-weight: 800;
+    margin-left: 55px;
+    margin-right: 55px;
+}
+.footer-bg{
+    background-color: #424242;
+}
 @media only screen and (max-width: 776px) {
     .header-top-align {
         display: flex;

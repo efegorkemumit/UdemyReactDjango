@@ -92,14 +92,14 @@ function Headers() {
   <div className="container">
           <div className="row">
             <div className="col-xs-12 col-sm-12">
-            <Navbar bg="dark" expand="lg" data-bs-theme="dark">
+            <Navbar className='header-bg' expand="lg" data-bs-theme="dark">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home"><i class="fa-solid fa-house"></i> Home</Nav.Link>
-            <Nav.Link href="#link"><i class="fa-solid fa-heart"></i> Product</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+            <Nav.Link className='nav-header first-l' href="#home"> HOME</Nav.Link>
+           
+            <NavDropdown className='nav-header' title="COLLECTION" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
@@ -110,6 +110,9 @@ function Headers() {
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link className='nav-header'  href="#link"> PRODUCT</Nav.Link>
+            <Nav.Link className='nav-header'  href="#link"> ABOUT US</Nav.Link>
+            <Nav.Link className='nav-header'  href="#link"> CONTACT US</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

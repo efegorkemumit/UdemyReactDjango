@@ -15,7 +15,6 @@ function App() {
 
      <HomeScreen></HomeScreen>
 
-     <div>Body</div>
 
 
 

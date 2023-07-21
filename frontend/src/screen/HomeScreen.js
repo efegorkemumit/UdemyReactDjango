@@ -8,7 +8,7 @@ function HomeScreen() {
     <div> 
         <Slider></Slider>
 
-        <div className='container'>
+        <div className='container '>
                     <div className='row'>
                      <div className='col-sm-3 m-top25'> 
                         <div className="mb-20"> <i class="fa-solid fa-truck-fast fa-2xl s1"></i></div>
