@@ -27,16 +27,16 @@ function Headers() {
                             <div className='header-top-left text-rigt header-align header-top-align'>
 
                             <Nav className="me-auto header-top-align ">
-            <Nav.Link href="#home"><i class="fa-solid fa-user"></i> Login</Nav.Link>
-            <Nav.Link href="#link"><i class="fa-sharp fa-solid fa-user-plus"></i> Register</Nav.Link>
+            <Nav.Link href="#home"><i className="fa-solid fa-user"></i> Login</Nav.Link>
+            <Nav.Link href="#link"><i className="fa-sharp fa-solid fa-user-plus"></i> Register</Nav.Link>
             <NavDropdown title="Username" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1"><i class="fa-solid fa-user"></i> Profile</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1"><i className="fa-solid fa-user"></i> Profile</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-              <i class="fa-solid fa-key"></i> Change Password
+              <i className="fa-solid fa-key"></i> Change Password
               </NavDropdown.Item>
             
               <NavDropdown.Item href="#action/3.4">
-              <i class="fa-solid fa-right-from-bracket"></i> Logout
+              <i className="fa-solid fa-right-from-bracket"></i> Logout
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
@@ -81,8 +81,8 @@ function Headers() {
 
                 <button type="button" className="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true">
                     <span>   
-                 <i class="fa-sharp fa-solid fa-bag-shopping fa-2xl"></i>
-                </span><span class="p-left15">items (0)</span> </button>
+                 <i className="fa-sharp fa-solid fa-bag-shopping fa-2xl"></i>
+                </span><span className="p-left15">items (0)</span> </button>
                 </div>
                 
                 

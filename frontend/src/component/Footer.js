@@ -3,7 +3,7 @@ import '../my.css'
 
 function Footer() {
   return (
-    <div class="footer-bg">
+    <div className="footer-bg">
         <div className="container">
       <footer className="py-5">
         <div className="row">

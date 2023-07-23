@@ -19,7 +19,7 @@ import {
   PRODUCT_UPDATE_RESET,
 
 
-} from "../constans/productConstants";
+} from "../constans/ProductConstants";
 
 export const listProducts = () => async (dispatch) => {
   try {
