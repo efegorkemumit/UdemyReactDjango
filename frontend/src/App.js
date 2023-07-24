@@ -19,7 +19,9 @@ function App() {
           <Route path="/" element={<HomeScreen />} />
           <Route path="/about" element={<AboutScreen />} />
           <Route path="/products/:id" element={<ProductScreen />} />
-          <Route path="/products/?category:id" element={<CategoryWithProduct />} />
+          <Route path="/category/:id" element={<CategoryWithProduct />} />
+
+          
         </Routes>
 
         <Footer />

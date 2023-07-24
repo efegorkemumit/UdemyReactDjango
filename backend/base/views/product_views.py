@@ -34,4 +34,3 @@ class ProductDeleteAPIView(generics.DestroyAPIView):
     permission_classes = [permissions.IsAdminUser]
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-

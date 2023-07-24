@@ -66,7 +66,7 @@ export const getCategoryDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_CATEGORY_REQUEST });
 
-    const { data } = await axios.get(`http://127.0.0.1:8000/api/products/?categoryid=${id}/`);
+    const { data } = await axios.get(`http://127.0.0.1:8000/api/products/?categoryid=${id}`);
 
     dispatch({ type: PRODUCT_CATEGORY_SUCCESS, payload: data });
   } catch (error) {
