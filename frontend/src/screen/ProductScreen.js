@@ -27,12 +27,25 @@ const ProductScreen = ({ match }) => {
       ) : error ? (
         <h2>{error}</h2>
       ) : (
-        <div>
-          <h2>{product.name}</h2>
-          <p>{product.description}</p>
-          <p>{product.price}</p>
-          {/* Add other product details you want to display */}
+        <div className='container'>
+        <div className='row'>
+          <div className='col-xs-6 col-sm-6'>
+               <img src={product.image} alt={product.name} />
+               </div>
+               <div className='col-xs-6 col-sm-6'>
+             
+            
+                
+                  <h3>{product.name}</h3>
+                  <p>{product.description}</p>
+                  <p className='price-product'>$ {product.price}</p>
+                
+           
+            
+           
+          </div>
         </div>
+      </div>
       )}
     </div>
   );
