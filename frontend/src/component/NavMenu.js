@@ -15,7 +15,7 @@ const NavMenu = () => {
   return (
     <NavDropdown className='nav-header' title="COLLECTION" id="basic-nav-dropdown">
       {categories.map((category) => (
-        <NavDropdown.Item key={category.id} href={`#action/${category.id}`}>
+        <NavDropdown.Item key={category.id} href={`products/?category:${category.id}`}>
           {category.name}
         </NavDropdown.Item>
       ))}

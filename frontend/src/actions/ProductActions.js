@@ -17,6 +17,9 @@ import {
   PRODUCT_UPDATE_SUCCESS,
   PRODUCT_UPDATE_FAIL, 
   PRODUCT_UPDATE_RESET,
+  PRODUCT_CATEGORY_FAIL,
+  PRODUCT_CATEGORY_REQUEST,
+  PRODUCT_CATEGORY_SUCCESS
 
 
 } from "../constans/ProductConstants";
@@ -50,6 +53,25 @@ export const getProductDetails = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: PRODUCT_DETAILS_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+// Product cateogry action
+export const getCategoryDetails = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: PRODUCT_CATEGORY_REQUEST });
+
+    const { data } = await axios.get(`http://127.0.0.1:8000/api/products/?categoryid=${id}/`);
+
+    dispatch({ type: PRODUCT_CATEGORY_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_CATEGORY_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

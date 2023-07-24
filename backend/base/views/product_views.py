@@ -9,6 +9,14 @@ class ProductListAPIView(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
+    def get_queryset(self):
+        category_id = self.request.query_params.get('categoryid', None)
+        if category_id:
+            return Product.objects.filter(category_id=category_id)
+        else:
+            return Product.objects.all()
+    
+
 class ProductDetailAPIView(generics.RetrieveAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer

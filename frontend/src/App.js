@@ -6,6 +6,7 @@ import HomeScreen from './screen/HomeScreen';
 import AboutScreen from './screen/AboutScreen';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ProductScreen from './screen/ProductScreen';
+import CategoryWithProduct from './screen/CategoryWithProduct';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<HomeScreen />} />
           <Route path="/about" element={<AboutScreen />} />
           <Route path="/products/:id" element={<ProductScreen />} />
+          <Route path="/products/?category:id" element={<CategoryWithProduct />} />
         </Routes>
 
         <Footer />

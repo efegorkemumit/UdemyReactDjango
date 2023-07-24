@@ -9,6 +9,7 @@ import {
   productDeleteReducer,
   productCreateReducer,
   productUpdateReducer,
+  productCategoryReducer,
 } from './reducers/ProducReducers';
 
 // Combine all reducers
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   productDelete: productDeleteReducer,
   productCreate: productCreateReducer,
   productUpdate: productUpdateReducer,
+  productCategory: productCategoryReducer
 });
 
 // Create the Redux store
