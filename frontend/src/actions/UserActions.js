@@ -46,7 +46,7 @@ export const register = (username, email, password) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post('/api/register/', { username, email, password }, config);
+    const { data } = await axios.post('http://127.0.0.1:8000/api/users/register/', { username, email, password }, config);
 
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
     // You can automatically log in the user after registration if needed.

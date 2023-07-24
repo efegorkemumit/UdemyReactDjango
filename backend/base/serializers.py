@@ -33,6 +33,11 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = '__all__'
 
+class UserRegisterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields =  ('id', 'username', 'email', 'first_name', 'last_name', 'password')
+
 
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
