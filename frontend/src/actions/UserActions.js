@@ -23,7 +23,7 @@ export const login = (username, password) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post('/api/login/', { username, password }, config);
+    const { data } = await axios.post('http://127.0.0.1:8000/api/users/login/', { username, password }, config);
 
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
     // You can save the user data in local storage or session storage here if needed.

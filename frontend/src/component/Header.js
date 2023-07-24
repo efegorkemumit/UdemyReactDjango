@@ -6,6 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import '../my.css'
 import {LinkContainer} from 'react-router-bootstrap'
 import NavMenu from './NavMenu';
+import { Link } from 'react-router-dom';
 
 
 function Headers() {
@@ -27,8 +28,12 @@ function Headers() {
                             <div className='header-top-left text-rigt header-align header-top-align'>
 
                             <Nav className="me-auto header-top-align ">
-            <Nav.Link href="#home"><i className="fa-solid fa-user"></i> Login</Nav.Link>
-            <Nav.Link href="#link"><i className="fa-sharp fa-solid fa-user-plus"></i> Register</Nav.Link>
+                            <LinkContainer to='/login'>
+  <Nav.Link><i className="fa-solid fa-user"></i> Login</Nav.Link>
+</LinkContainer>
+<LinkContainer to='/register'>
+         <Nav.Link><i className="fa-sharp fa-solid fa-user-plus"></i> Register</Nav.Link>
+         </LinkContainer>
             <NavDropdown title="Username" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1"><i className="fa-solid fa-user"></i> Profile</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -107,13 +112,13 @@ function Headers() {
 
        
            
-            <LinkContainer to='/'> 
+            <LinkContainer to='/Product'> 
             <Nav.Link className='nav-header'> PRODUCT</Nav.Link>
             </LinkContainer>
             <LinkContainer to='/about'> 
             <Nav.Link className='nav-header'> ABOUT US</Nav.Link>
             </LinkContainer>
-            <LinkContainer to='/'> 
+            <LinkContainer to='/contact'> 
             <Nav.Link className='nav-header'> CONTACT US</Nav.Link>
             </LinkContainer>
           </Nav>

@@ -29,8 +29,17 @@ const rootReducer = combineReducers({
 // Create the Redux store
 const middleware = [thunk]
 
+const userInfoFromStorage = localStorage.getItem("userInfo") 
+  ? JSON.parse(localStorage.getItem("userInfo"))
+  :null;
 
-const store = createStore(rootReducer,  composeWithDevTools(applyMiddleware(...middleware)))
+const initialState={
+  userLogin:{userInfo:userInfoFromStorage}
+
+}
+
+
+const store = createStore(rootReducer,initialState,  composeWithDevTools(applyMiddleware(...middleware)))
 
 
 export default store

@@ -469,7 +469,11 @@
 {
     margin-bottom: 20px;
 }
-
+.loginPage
+{
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
 .s1
 {
     color:#fa5460

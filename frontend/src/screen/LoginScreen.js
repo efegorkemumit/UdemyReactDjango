@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../actions'; // Assuming you have created the login action.
+import { login } from '../actions/UserActions'; // Assuming you have created the login action.
+import { useLocation, useNavigate } from 'react-router-dom';
+import '../my.css'
 
 const LoginScreen = () => {
   const [username, setUsername] = useState('');
@@ -11,6 +13,18 @@ const LoginScreen = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, userInfo } = userLogin;
 
+  const history = useNavigate()
+
+  const location = useLocation()
+  const redirect = location.search ? location.search.split('=')[1]:'/'
+
+  useEffect(()=>{
+    if(userInfo){
+        history(redirect)
+    }
+
+  }, [history, userInfo, redirect])
+
   const submitHandler = (e) => {
     e.preventDefault();
     // Dispatch the login action with the form data
@@ -18,7 +32,7 @@ const LoginScreen = () => {
   };
 
   return (
-    <div>
+    <div className='loginPage'>
       <h2>Login</h2>
       <form onSubmit={submitHandler}>
         <div>
