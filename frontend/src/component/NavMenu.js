@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavDropdown } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const NavMenu = () => {
   const [categories, setCategories] = useState([]);
@@ -14,14 +15,14 @@ const NavMenu = () => {
 
   return (
     <NavDropdown className='nav-header' title="COLLECTION" id="basic-nav-dropdown">
-      {categories.map((category) => (
-        <NavDropdown.Item key={category.id} href={`/category/${category.id}`}>
-          {category.name}
-        </NavDropdown.Item>
-      ))}
-      <NavDropdown.Divider />
-     
-    </NavDropdown>
+    {categories.map((category) => (
+      <React.Fragment key={category.id}>
+        <LinkContainer to={`/category/${category.id}`}>
+          <NavDropdown.Item>{category.name}</NavDropdown.Item>
+        </LinkContainer>
+      </React.Fragment>
+    ))}
+  </NavDropdown>
   );
 };
 

@@ -7,9 +7,14 @@ import '../my.css'
 import {LinkContainer} from 'react-router-bootstrap'
 import NavMenu from './NavMenu';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 function Headers() {
+
+  const userLogin = useSelector(state=>state.userLogin)
+  const {userInfo} = userLogin
+
   return (
     <div>
 
@@ -28,12 +33,21 @@ function Headers() {
                             <div className='header-top-left text-rigt header-align header-top-align'>
 
                             <Nav className="me-auto header-top-align ">
+                          
+                          {!userInfo ? (
                             <LinkContainer to='/login'>
   <Nav.Link><i className="fa-solid fa-user"></i> Login</Nav.Link>
 </LinkContainer>
+) : (<span></span>)}
+
+{!userInfo ? (
 <LinkContainer to='/register'>
          <Nav.Link><i className="fa-sharp fa-solid fa-user-plus"></i> Register</Nav.Link>
          </LinkContainer>
+
+) : (<span></span>)}
+
+{userInfo ? (
             <NavDropdown title="Username" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1"><i className="fa-solid fa-user"></i> Profile</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -44,6 +58,7 @@ function Headers() {
               <i className="fa-solid fa-right-from-bracket"></i> Logout
               </NavDropdown.Item>
             </NavDropdown>
+) : (<span></span>)}
           </Nav>
 
 

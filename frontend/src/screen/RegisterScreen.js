@@ -32,7 +32,7 @@ const RegisterScreen = () => {
   };
 
   return (
-    <div>
+    <div className='loginPage'>
       <h2>Register</h2>
       <form onSubmit={submitHandler}>
         <div>
