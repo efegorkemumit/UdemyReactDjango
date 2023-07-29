@@ -11,7 +11,7 @@ import {
   productUpdateReducer,
   productCategoryReducer,
 } from './reducers/ProducReducers';
-import { userLoginReducer, userDetailsReducer,userRegisterReducer} from './reducers/UserReducers';
+import { userLoginReducer, userDetailsReducer,userRegisterReducer, userUpdateReducer} from './reducers/UserReducers';
 
 // Combine all reducers
 const rootReducer = combineReducers({
@@ -24,6 +24,7 @@ const rootReducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
   userDetails: userDetailsReducer,
+  userUpdate :  userUpdateReducer 
 });
 
 // Create the Redux store

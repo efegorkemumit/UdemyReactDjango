@@ -10,6 +10,7 @@ import {
   USER_DETAILS_REQUEST,
   USER_DETAILS_SUCCESS,
   USER_DETAILS_FAIL,
+  USER_PROFILE_UPDATE_REQUEST, USER_PROFILE_UPDATE_SUCCESS, USER_PROFILE_UPDATE_FAIL 
 } from '../constans/UserConstants';
 
 // User login action
@@ -89,4 +90,22 @@ export const getUserProfile = (username) => async (dispatch, getState) => {
 export const logout = () => (dispatch) => {
   // You can add any additional code required for logout here, like clearing local storage, etc.
   dispatch({ type: USER_LOGIN_LOGOUT });
+};
+
+export const updateUserProfile = (updatedProfile) => async (dispatch) => {
+  try {
+    dispatch({ type: USER_PROFILE_UPDATE_REQUEST });
+
+    const { data } = await axios.put('/api/profile/update/', updatedProfile);
+
+    dispatch({ type: USER_PROFILE_UPDATE_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: USER_PROFILE_UPDATE_FAIL,
+      payload:
+        error.response && error.response.data.detail
+          ? error.response.data.detail
+          : error.message,
+    });
+  }
 };

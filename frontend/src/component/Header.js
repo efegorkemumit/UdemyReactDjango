@@ -7,13 +7,21 @@ import '../my.css'
 import {LinkContainer} from 'react-router-bootstrap'
 import NavMenu from './NavMenu';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../actions/UserActions'; // Assuming you have created the getUserProfile action.
 
 
 function Headers() {
 
   const userLogin = useSelector(state=>state.userLogin)
   const {userInfo} = userLogin
+
+  const dispatch = useDispatch();
+
+
+  const LogoutHandler=()=>{
+    dispatch(logout());
+  }
 
   return (
     <div>
@@ -52,10 +60,12 @@ function Headers() {
           <LinkContainer to={`/Profile/${userInfo.username}`}>
             <NavDropdown.Item><i className="fa-solid fa-user"></i> Profile</NavDropdown.Item>
           </LinkContainer> 
-          <NavDropdown.Item href="#action/3.2">
-            <i className="fa-solid fa-key"></i> Change Password
+          <LinkContainer to="/UpdateProfile">
+          <NavDropdown.Item>
+            <i className="fa-solid fa-key"></i> Update Profile
           </NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.4">
+          </LinkContainer> 
+          <NavDropdown.Item onClick={LogoutHandler}>
             <i className="fa-solid fa-right-from-bracket"></i> Logout
           </NavDropdown.Item>
         </NavDropdown>

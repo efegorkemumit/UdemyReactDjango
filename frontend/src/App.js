@@ -12,6 +12,7 @@ import ProductListScreen from './screen/ProductListScreen';
 import ContactScreen from './screen/ContactScreen';
 import RegisterScreen from './screen/RegisterScreen';
 import ProfileScreen from './screen/ProfileScreen';
+import UpdateUserProfileScreen from './screen/UpdateUserProfileScreen';
 
 function App() {
   
@@ -31,6 +32,8 @@ function App() {
           <Route path="/contact" element={<ContactScreen />} />
           <Route path="/register" element={<RegisterScreen />} />
           <Route path="/Profile/:username" element={<ProfileScreen />} />
+          <Route path="/UpdateProfile" element={<UpdateUserProfileScreen />} />
+          
 
 
           
