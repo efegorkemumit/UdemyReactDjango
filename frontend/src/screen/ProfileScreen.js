@@ -18,7 +18,7 @@ const ProfileScreen = ({ match }) => {
   }, [dispatch, username]);
 
   return (
-    <div>
+    <div className='loginPage'>
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
@@ -28,11 +28,14 @@ const ProfileScreen = ({ match }) => {
           <h2>User Profile</h2>
           <p>Username: {user.username}</p>
           <p>Email: {user.email}</p>
+          <p>first_name: {user.first_name}</p>
+          <p>last_name: {user.last_name}</p>
           {/* Add other profile details as needed */}
         </div>
       )}
     </div>
   );
 };
+
 
 export default ProfileScreen;

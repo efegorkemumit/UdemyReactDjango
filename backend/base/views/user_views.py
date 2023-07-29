@@ -4,10 +4,25 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from base.serializers import UserSerializer, UserProfileSerializer,UserRegisterSerializer, CustomTokenObtainPairSerializer
 from django.contrib.auth.models import User
 from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.authentication import JWTAuthentication
+
+
+
+
+class MyCustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        serializer  = UserProfileSerializer(self.user).data
+        for k, v in serializer.items():
+            data[k] = v
+        
+        return data
 
 
 class CustomTokenObtainPairView(TokenObtainPairView):
-    serializer_class = CustomTokenObtainPairSerializer
+    serializer_class = MyCustomTokenObtainPairSerializer
 
 class RegisterUserView(generics.CreateAPIView):
     queryset = User.objects.all()
@@ -23,6 +38,7 @@ class UserProfileView(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserProfileSerializer
     permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
     lookup_field = 'username'
 
 
