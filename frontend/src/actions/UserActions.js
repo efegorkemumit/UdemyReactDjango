@@ -59,11 +59,22 @@ export const register = (username, email, password) => async (dispatch) => {
 };
 
 // User details action
-export const getUserProfile = (username) => async (dispatch) => {
+export const getUserProfile = (username) => async (dispatch, getState) => {
   try {
     dispatch({ type: USER_DETAILS_REQUEST });
 
-    const { data } = await axios.get(`/api/profile/${username}/`);
+    const{
+      userLogin: {userInfo}, 
+    }= getState()
+
+    const config = {
+      headers:{
+        'Content-type': 'application/json',
+        Authorization : `Bearer ${userInfo.token}`
+      }
+    }
+
+    const { data } = await axios.get(`http://127.0.0.1:8000/api/users/profile/${username}/`, config);
 
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
   } catch (error) {

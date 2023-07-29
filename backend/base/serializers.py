@@ -2,6 +2,8 @@ from rest_framework import serializers
 from .models import Category, Product, Cart, CartItem, Order
 from django.contrib.auth.models import User
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.tokens import RefreshToken
+
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -40,9 +42,17 @@ class UserRegisterSerializer(serializers.ModelSerializer):
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
+
+    token = serializers.SerializerMethodField(read_only=True)
+
+
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'first_name', 'last_name')
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'token')
+
+    def get_token(self, obj):
+        token = RefreshToken.for_user(obj)
+        return str(token.access_token)
 
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):

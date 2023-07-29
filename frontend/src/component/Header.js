@@ -48,16 +48,17 @@ function Headers() {
 ) : (<span></span>)}
 
 {userInfo ? (
-            <NavDropdown title="Username" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1"><i className="fa-solid fa-user"></i> Profile</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-              <i className="fa-solid fa-key"></i> Change Password
-              </NavDropdown.Item>
-            
-              <NavDropdown.Item href="#action/3.4">
-              <i className="fa-solid fa-right-from-bracket"></i> Logout
-              </NavDropdown.Item>
-            </NavDropdown>
+          <NavDropdown title={userInfo.username} id="basic-nav-dropdown">
+          <LinkContainer to={`/Profile/${userInfo.username}`}>
+            <NavDropdown.Item><i className="fa-solid fa-user"></i> Profile</NavDropdown.Item>
+          </LinkContainer> 
+          <NavDropdown.Item href="#action/3.2">
+            <i className="fa-solid fa-key"></i> Change Password
+          </NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.4">
+            <i className="fa-solid fa-right-from-bracket"></i> Logout
+          </NavDropdown.Item>
+        </NavDropdown>
 ) : (<span></span>)}
           </Nav>
 
