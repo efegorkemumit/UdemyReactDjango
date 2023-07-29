@@ -4,10 +4,14 @@ from base.serializers import ProductSerializer
 from django.http import HttpResponse
 from django.conf import settings
 import os
+from rest_framework.permissions import IsAuthenticated, AllowAny
+
 
 class ProductListAPIView(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = [AllowAny]
+
 
     def get_queryset(self):
         category_id = self.request.query_params.get('categoryid', None)
@@ -20,10 +24,13 @@ class ProductListAPIView(generics.ListAPIView):
 class ProductDetailAPIView(generics.RetrieveAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = [AllowAny]
+
 
 class ProductCreateAPIView(generics.CreateAPIView):
     permission_classes = [permissions.IsAdminUser]
     serializer_class = ProductSerializer
+    
 
 class ProductUpdateAPIView(generics.UpdateAPIView):
     permission_classes = [permissions.IsAdminUser]
