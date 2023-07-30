@@ -92,13 +92,28 @@ export const logout = () => (dispatch) => {
   dispatch({ type: USER_LOGIN_LOGOUT });
 };
 
-export const updateUserProfile = (updatedProfile) => async (dispatch) => {
+export const updateUserProfile = (user) => async (dispatch, getState) => {
   try {
     dispatch({ type: USER_PROFILE_UPDATE_REQUEST });
 
-    const { data } = await axios.put('/api/profile/update/', updatedProfile);
+    const{
+      userLogin: {userInfo}, 
+    }= getState()
+
+    const config = {
+      headers:{
+        'Content-type': 'application/json',
+        Authorization : `Bearer ${userInfo.token}`
+      }
+    }
+
+    const { data } = await axios.put('http://127.0.0.1:8000/api/users/profile/update/', user, config);
 
     dispatch({ type: USER_PROFILE_UPDATE_SUCCESS, payload: data });
+    dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
+
+    localStorage.setItem('userInfo', JSON.stringify(data))
+
   } catch (error) {
     dispatch({
       type: USER_PROFILE_UPDATE_FAIL,
