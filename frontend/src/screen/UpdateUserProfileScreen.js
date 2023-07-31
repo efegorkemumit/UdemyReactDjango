@@ -46,6 +46,9 @@ const UpdateUserProfileScreen = () => {
   const submitHandler = (e)=>{
     e.preventDefault()
 
+    const username = userInfo.username
+    dispatch(updateUserProfile({first_name, email, username}))
+
   }
 
 

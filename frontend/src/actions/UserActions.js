@@ -107,7 +107,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       }
     }
 
-    const { data } = await axios.put('http://127.0.0.1:8000/api/users/profile/update/', user, config);
+    const { data } = await axios.put(`http://127.0.0.1:8000/api/users/update/profile/${userInfo.id}/`, user, config);
 
     dispatch({ type: USER_PROFILE_UPDATE_SUCCESS, payload: data });
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
