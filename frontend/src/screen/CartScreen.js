@@ -14,7 +14,8 @@ const CartScreen = ({ cartItems, removeFromCart, updateQuantity, clearCart }) =>
             <li key={item.product.id}>
               <span>{item.product.name}</span>
               <span>
-                <button onClick={() => updateQuantity(item.product.id, item.quantity - 1)}>
+              <button onClick={() => updateQuantity(item.quantity > 1 ? item.product.id : null, item.quantity > 1 ? item.quantity - 1 : item.quantity)}>
+
                   -
                 </button>
                 {item.quantity}

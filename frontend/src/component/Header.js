@@ -18,6 +18,15 @@ function Headers() {
 
   const dispatch = useDispatch();
 
+  const cart = useSelector(state=>state.cart)
+  const {cartItems} = cart
+
+
+
+  const getTotalItemCount = () =>{
+    return cartItems.length;
+  };
+
 
   const LogoutHandler=()=>{
     dispatch(logout());
@@ -115,7 +124,7 @@ function Headers() {
       <span>
         <i className="fa-sharp fa-solid fa-bag-shopping fa-2xl"></i>
       </span>
-      <span className="p-left15">items (0)</span>
+      <span className="p-left15">items ( {getTotalItemCount()} )</span>
     </button>
   </div>
 </LinkContainer>
