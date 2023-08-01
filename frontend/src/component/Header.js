@@ -109,11 +109,17 @@ function Headers() {
         
                  <div id="cart" className="btn-group btn-block mtb_40 m-top25">
              
+                 <LinkContainer to="/Cart">
+  <div> {/* Wrap the button and its content in a parent element */}
+    <button type="button" className="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true">
+      <span>
+        <i className="fa-sharp fa-solid fa-bag-shopping fa-2xl"></i>
+      </span>
+      <span className="p-left15">items (0)</span>
+    </button>
+  </div>
+</LinkContainer>
 
-                <button type="button" className="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true">
-                    <span>   
-                 <i className="fa-sharp fa-solid fa-bag-shopping fa-2xl"></i>
-                </span><span className="p-left15">items (0)</span> </button>
                 </div>
                 
                 
