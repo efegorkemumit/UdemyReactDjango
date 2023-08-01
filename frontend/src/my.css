@@ -469,6 +469,15 @@
 {
     margin-bottom: 20px;
 }
+.mleft-20
+{
+    margin-left: 20px;
+}
+.totalprice
+{
+    color: red;
+    font-weight: 800;
+}
 .loginPage
 {
     margin-top: 150px;
