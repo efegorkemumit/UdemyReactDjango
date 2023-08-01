@@ -13,6 +13,7 @@ import ContactScreen from './screen/ContactScreen';
 import RegisterScreen from './screen/RegisterScreen';
 import ProfileScreen from './screen/ProfileScreen';
 import UpdateUserProfileScreen from './screen/UpdateUserProfileScreen';
+import CartScreen from './screen/CartScreen';
 
 function App() {
   
@@ -33,6 +34,7 @@ function App() {
           <Route path="/register" element={<RegisterScreen />} />
           <Route path="/Profile/:username" element={<ProfileScreen />} />
           <Route path="/UpdateProfile" element={<UpdateUserProfileScreen />} />
+          <Route path="/cart" element={<CartScreen />} />
           
 
 
