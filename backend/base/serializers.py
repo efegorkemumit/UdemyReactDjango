@@ -75,4 +75,3 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         data['last_name']= self.user.first_name
         data['is_staff']= self.user.is_staff
         return data
-

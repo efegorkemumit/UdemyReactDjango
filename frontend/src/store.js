@@ -26,7 +26,8 @@ const rootReducer = combineReducers({
   userRegister: userRegisterReducer,
   userDetails: userDetailsReducer,
   userUpdateProfile :  userUpdateProfileReducer,
-  cart: cartReducer
+  cart: cartReducer,
+
 });
 
 // Create the Redux store
@@ -36,8 +37,17 @@ const userInfoFromStorage = localStorage.getItem("userInfo")
   ? JSON.parse(localStorage.getItem("userInfo"))
   :null;
 
+const cartItemsFromStorage = localStorage.getItem("cartItems")
+  ? JSON.parse(localStorage.getItem("cartItems"))
+  : [];
+
 const initialState={
-  userLogin:{userInfo:userInfoFromStorage}
+  userLogin:{userInfo:userInfoFromStorage},
+  cart:{
+    cartItems:cartItemsFromStorage,
+
+
+},
 
 }
 
