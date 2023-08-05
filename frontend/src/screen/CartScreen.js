@@ -15,7 +15,7 @@ const CartScreen = ({ cartItems, removeFromCart, updateQuantity, clearCart }) =>
 
   const redirect = location.search ? location.search.split('=')[1]:'/'
  
-  if(userInfo){
+  if(!userInfo){
     history(redirect)
   }
 

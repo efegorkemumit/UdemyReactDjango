@@ -1,6 +1,10 @@
 from rest_framework import generics, permissions
 from base.models import Cart, CartItem, Order
 from base.serializers import CartSerializer, CartItemSerializer, OrderSerializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+
 
 class CartListCreateView(generics.ListCreateAPIView):
     queryset = Cart.objects.all()
@@ -49,3 +53,16 @@ class OrderRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         queryset = super().get_queryset()
         return queryset.filter(user=self.request.user)  # Yalnızca kullanıcının kendi siparişlerini getirmek için filtreleme
+
+
+@api_view(['POST'])
+def create_cart_items_bulk(request):
+    if request.method == 'POST':
+        serializer = CartItemSerializer(data=request.data, many=True)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            print(serializer.errors)  # Hataları yazdır
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

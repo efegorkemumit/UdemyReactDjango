@@ -1,10 +1,59 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { removeFromCart, updateQuantity, clearCart } from '../actions/Cartactions';
 import '../my.css';
+import axios from 'axios';
 
 const PlaceOrderScreen = ({ cartItems, removeFromCart, updateQuantity, clearCart }) => {
   // Function to calculate the total price
+
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const {  userInfo } = userLogin;
+
+  const userId = useSelector((state) => state.userLogin.userInfo.id);
+
+  const handleComplete = async () =>{
+
+    try {
+
+        const config = {
+            headers:{
+              'Content-type': 'application/json',
+              Authorization : `Bearer ${userInfo.token}`
+            }
+          }
+          const cartData={
+            user:userId
+          }
+
+          const  cartResponse  = await axios.post('http://127.0.0.1:8000/api/orders/carts/', cartData, config);
+          const cartItemId = cartResponse.data.id;
+
+          const cartItemData = cartItems.map((item)=>{
+            const{product, quantity} = item;
+            return{
+                cart:cartItemId,
+                product:product.id,
+                quantity : quantity
+            };
+          });
+
+          const  cartItemResponse  = await axios.post('http://127.0.0.1:8000/api/orders/cart-items/bulk/', cartItemData, config);
+          const orderId = cartItemResponse.data.id;
+
+
+
+        
+    } catch (error) {
+        console.error('Error : ', error)
+        
+    }
+
+
+  }
+
+
   const calculateTotalPrice = () => {
     return cartItems.reduce((total, item) => total + item.product.price * item.quantity, 0);
   };
@@ -35,7 +84,7 @@ const PlaceOrderScreen = ({ cartItems, removeFromCart, updateQuantity, clearCart
           <p className='totalprice'>Total Price: ${calculateTotalPrice().toFixed(2)}</p>
         </div>
       )}
-      <button >Complete Order</button>
+      <button onClick={handleComplete} >Complete Order</button>
     </div>
   );
 };

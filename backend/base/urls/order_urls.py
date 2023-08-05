@@ -9,4 +9,5 @@ urlpatterns = [
     path('cart-items/<int:pk>/', CartItemRetrieveUpdateDestroyView.as_view(), name='cart-item-retrieve-update-destroy'),
     path('orders/', OrderListCreateView.as_view(), name='order-list-create'),
     path('orders/<int:pk>/', OrderRetrieveUpdateDestroyView.as_view(), name='order-retrieve-update-destroy'),
+    path('cart-items/bulk/', create_cart_items_bulk, name='cart-item-create-bulk'),
 ]
