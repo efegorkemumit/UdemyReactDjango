@@ -1,10 +1,30 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { removeFromCart, updateQuantity, clearCart } from '../actions/Cartactions';
 import '../my.css';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const CartScreen = ({ cartItems, removeFromCart, updateQuantity, clearCart }) => {
   // Function to calculate the total price
+
+  const history = useNavigate()
+  const userLogin = useSelector((state) => state.userLogin);
+  const {  userInfo } = userLogin;
+
+  const location = useLocation()
+
+  const redirect = location.search ? location.search.split('=')[1]:'/'
+ 
+  if(userInfo){
+    history(redirect)
+  }
+
+  const placeSubmit = () => {
+    history('/PlaceOrder')
+  };
+
+  
+
   const calculateTotalPrice = () => {
     return cartItems.reduce((total, item) => total + item.product.price * item.quantity, 0);
   };
@@ -19,6 +39,7 @@ const CartScreen = ({ cartItems, removeFromCart, updateQuantity, clearCart }) =>
           <ul>
             {cartItems.map((item) => (
               <li key={item.product.id}>
+                  <span className='mleft-20'><img className='img-product-class' src={item.product.image}></img></span>
                 <span className='mleft-20'>{item.product.name}</span>
                 <span className='mleft-20'>{item.product.price}</span>
                 <span>
@@ -48,6 +69,7 @@ const CartScreen = ({ cartItems, removeFromCart, updateQuantity, clearCart }) =>
         </div>
       )}
       <button onClick={() => clearCart()}>Clear Cart</button>
+      <button className='button-bg' onClick={placeSubmit}>Next Step</button>
     </div>
   );
 };

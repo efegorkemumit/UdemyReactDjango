@@ -478,6 +478,14 @@
     color: red;
     font-weight: 800;
 }
+.img-product-class{
+    width: 50px;
+    height: auto
+
+}
+.button-bg{
+    background-color: #051559;
+}
 .loginPage
 {
     margin-top: 150px;
