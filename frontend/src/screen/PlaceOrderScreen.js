@@ -13,6 +13,11 @@ const PlaceOrderScreen = ({ cartItems, removeFromCart, updateQuantity, clearCart
 
   const userId = useSelector((state) => state.userLogin.userInfo.id);
 
+  const total = cartItems.reduce((acc, item) => {
+    return acc + item.product.price * item.quantity;
+  }, 0);
+
+
   const handleComplete = async () =>{
 
     try {
@@ -40,7 +45,15 @@ const PlaceOrderScreen = ({ cartItems, removeFromCart, updateQuantity, clearCart
           });
 
           const  cartItemResponse  = await axios.post('http://127.0.0.1:8000/api/orders/cart-items/bulk/', cartItemData, config);
-          const orderId = cartItemResponse.data.id;
+          const cartProductIds = cartItemResponse.data.map((item)=>item.id)
+
+          const orderData={
+            user:userId,
+            total:total.toFixed(2),
+            items:cartProductIds
+          }
+
+          const  OrderResponse  = await axios.post('http://127.0.0.1:8000/api/orders/orders/', orderData, config);
 
 
 

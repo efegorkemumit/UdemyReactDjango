@@ -57,6 +57,7 @@ class OrderRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
 
 @api_view(['POST'])
 def create_cart_items_bulk(request):
+
     if request.method == 'POST':
         serializer = CartItemSerializer(data=request.data, many=True)
 
