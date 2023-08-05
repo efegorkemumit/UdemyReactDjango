@@ -79,6 +79,30 @@ function Headers() {
           </NavDropdown.Item>
         </NavDropdown>
 ) : (<span></span>)}
+
+{userInfo && userInfo.is_superuser && (
+          <NavDropdown title="Admin" id="basic-nav-dropdown">
+          <LinkContainer to="/a">
+            <NavDropdown.Item><i className="fa-solid fa-user"></i> Category</NavDropdown.Item>
+          </LinkContainer> 
+          <LinkContainer to="/UpdateProfile">
+          <NavDropdown.Item>
+            <i className="fa-solid fa-key"></i>  Product
+          </NavDropdown.Item>
+          </LinkContainer> 
+          <LinkContainer to="/UpdateProfile">
+          <NavDropdown.Item>
+            <i className="fa-solid fa-key"></i>  Order
+          </NavDropdown.Item>
+          </LinkContainer> 
+          <LinkContainer to="/UpdateProfile">
+          <NavDropdown.Item>
+            <i className="fa-solid fa-key"></i>  User
+          </NavDropdown.Item>
+          </LinkContainer> 
+        
+        </NavDropdown>
+)}
           </Nav>
 
 

@@ -38,7 +38,7 @@ class UserSerializer(serializers.ModelSerializer):
 class UserRegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields =  ('id', 'username', 'email', 'first_name', 'last_name', 'password')
+        fields =  ('id', 'username', 'email', 'first_name', 'last_name', 'password', 'is_superuser', 'is_active')
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
@@ -48,7 +48,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'token')
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'token', 'is_superuser', 'is_active')
 
     def get_token(self, obj):
         token = RefreshToken.for_user(obj)
