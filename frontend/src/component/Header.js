@@ -85,7 +85,7 @@ function Headers() {
           <LinkContainer to="/Category">
             <NavDropdown.Item><i className="fa-solid fa-user"></i> Category</NavDropdown.Item>
           </LinkContainer> 
-          <LinkContainer to="/UpdateProfile">
+          <LinkContainer to="/ProductControl">
           <NavDropdown.Item>
             <i className="fa-solid fa-key"></i>  Product
           </NavDropdown.Item>
