@@ -82,7 +82,7 @@ function Headers() {
 
 {userInfo && userInfo.is_superuser && (
           <NavDropdown title="Admin" id="basic-nav-dropdown">
-          <LinkContainer to="/a">
+          <LinkContainer to="/Category">
             <NavDropdown.Item><i className="fa-solid fa-user"></i> Category</NavDropdown.Item>
           </LinkContainer> 
           <LinkContainer to="/UpdateProfile">

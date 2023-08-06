@@ -13,6 +13,7 @@ import {
 } from './reducers/ProducReducers';
 import { userLoginReducer, userDetailsReducer,userRegisterReducer, userUpdateProfileReducer} from './reducers/UserReducers';
 import cartReducer from './reducers/CartReducers';
+import categoryReducer from './reducers/CategoryReducer';
 
 // Combine all reducers
 const rootReducer = combineReducers({
@@ -27,6 +28,8 @@ const rootReducer = combineReducers({
   userDetails: userDetailsReducer,
   userUpdateProfile :  userUpdateProfileReducer,
   cart: cartReducer,
+  category: categoryReducer,
+
 
 });
 
