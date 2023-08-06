@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCategories, createCategory, updateCategory, deleteCategory } from '../actions/CategoryAction';
+import {  useNavigate } from 'react-router-dom';
+
 
 const CategoryScreen = () => {
   const dispatch = useDispatch();
@@ -10,8 +12,23 @@ const CategoryScreen = () => {
   const [editMode, setEditMode] = useState(false);
   const [categoryId, setCategoryId] = useState(null);
 
+  const history = useNavigate()
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  
+
   useEffect(() => {
-    dispatch(fetchCategories());
+
+    if(userInfo && userInfo.is_superuser)
+    {
+        dispatch(fetchCategories());
+    }
+    else{
+        history('/login')
+    }
+    
   }, [dispatch]);
 
   const handleDelete = (categoryId) => {
