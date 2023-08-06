@@ -14,6 +14,7 @@ import {
 import { userLoginReducer, userDetailsReducer,userRegisterReducer, userUpdateProfileReducer} from './reducers/UserReducers';
 import cartReducer from './reducers/CartReducers';
 import categoryReducer from './reducers/CategoryReducer';
+import { orderReducer } from './reducers/AdminReducer';
 
 // Combine all reducers
 const rootReducer = combineReducers({
@@ -29,6 +30,8 @@ const rootReducer = combineReducers({
   userUpdateProfile :  userUpdateProfileReducer,
   cart: cartReducer,
   category: categoryReducer,
+  order: orderReducer,
+
 
 
 });

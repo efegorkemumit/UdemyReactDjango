@@ -16,6 +16,7 @@ import UpdateUserProfileScreen from './screen/UpdateUserProfileScreen';
 import CartScreen from './screen/CartScreen';
 import PlaceOrderScreen from './screen/PlaceOrderScreen';
 import CategoryScreen from './screen/CategoryScreen';
+import OrderScreen from './screen/OrderScreen';
 
 function App() {
   
@@ -39,6 +40,7 @@ function App() {
           <Route path="/cart" element={<CartScreen />} />
           <Route path="/PlaceOrder" element={<PlaceOrderScreen />} />
           <Route path="/Category" element={<CategoryScreen />} />
+          <Route path="/Order" element={<OrderScreen />} />
           
 
 
