@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductDetails, updateProduct } from '../actions/ProductActions';
 import { useParams } from 'react-router-dom';
+import { fetchCategories } from '../actions/CategoryAction';
+
 
 const ProductUpdateScreen = ({ match, history }) => {
   const { id } = useParams();
@@ -9,6 +11,7 @@ const ProductUpdateScreen = ({ match, history }) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState('');
+  let category=5
 
   const dispatch = useDispatch();
 
@@ -18,7 +21,15 @@ const ProductUpdateScreen = ({ match, history }) => {
   const productDetails = useSelector((state) => state.productDetails);
   const {  product : fetchProduct } = productDetails;
 
+  const {categories} = useSelector((state) => state.category);
+
+  function handleCategoryChange(event){
+    category = event.target.value
+  }
+
+
   useEffect(() => {
+    dispatch(fetchCategories());
 
     dispatch(getProductDetails(id));
    
@@ -41,15 +52,9 @@ const ProductUpdateScreen = ({ match, history }) => {
     e.preventDefault();
 
     // Update the product with the new data
-    const updatedProduct = {
-      _id: id,
-      name,
-      price,
-      description,
-      // Add other fields as needed
-    };
+   
 
-    dispatch(updateProduct(updatedProduct));
+    dispatch(updateProduct({id, name, price, category}));
   };
 
   return (
@@ -59,6 +64,18 @@ const ProductUpdateScreen = ({ match, history }) => {
       {error && <p>Error: {error}</p>}
       {success && <p>Product updated successfully</p>}
       <form onSubmit={submitHandler}>
+
+      <div>
+      <label htmlFor="name">Category</label>
+        <select onChange={handleCategoryChange} id="categorySelect">
+      {categories.map((category) => (
+        <option key={category.id} value={category.id}>
+          {category.name}
+        </option>
+      ))}
+      </select>
+        </div>
+
         <div>
           <label htmlFor="name">Name</label>
           <input

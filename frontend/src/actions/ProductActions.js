@@ -153,7 +153,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
       }
     }
 
-    const { data } = await axios.put(`http://127.0.0.1:8000/api/products/${product._id}`, product, config);
+    const { data } = await axios.put(`http://127.0.0.1:8000/api/products/update/${product.id}/`, product, config);
 
     dispatch({ type: PRODUCT_UPDATE_SUCCESS, payload: data });
   } catch (error) {
