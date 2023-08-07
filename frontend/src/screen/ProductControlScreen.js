@@ -2,19 +2,43 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../my.css'
 import Button from 'react-bootstrap/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteProduct } from '../actions/ProductActions';
 
 
 
 const ProductControlScreen = () => {
   const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
 
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/products/')
-      .then((response) => response.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.log(error));
+    fetchProducts()
+   
   }, []);
+
+  const fetchProducts =()=>{
+    fetch('http://127.0.0.1:8000/api/products/')
+    .then((response) => response.json())
+    .then((data) => setProducts(data))
+    .catch((error) => console.log(error));
+
+  }
+  const handleDelete = (id, dispatch) => {
+    const confirmed = window.confirm('Are you sure want ?');
+    if (confirmed) {
+      dispatch(deleteProduct(id))
+        .then(() => {
+          fetchProducts();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
 
   return (
     <div className='container'>
@@ -41,7 +65,7 @@ const ProductControlScreen = () => {
         <td>$ {product.price}</td>
         <td>
           <Link to={`/products/${product.id}`}><Button variant="secondary">View</Button></Link>
-          <Link to={`/products/${product.id}`}><Button variant="danger">Delete</Button></Link>
+          <Button onClick={()=> handleDelete(product.id, dispatch)} variant="danger">Delete</Button>
           <Link to={`/products/${product.id}`}><Button variant="info">Update</Button></Link>
         </td>
       </tr>
