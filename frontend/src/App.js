@@ -20,6 +20,7 @@ import OrderScreen from './screen/OrderScreen';
 import Success from './screen/Success';
 import ProductControlScreen from './screen/ProductControlScreen';
 import ProductUpdateScreen from './screen/ProductUpdateScreen';
+import ProductCreateScreen from './screen/ProductCreateScreen';
 
 function App() {
   
@@ -47,6 +48,7 @@ function App() {
           <Route path="/Success" element={<Success />} />
           <Route path="/ProductControl" element={<ProductControlScreen />} />
           <Route path="/products/update/:id" element={<ProductUpdateScreen />} />
+          <Route path="/products/create" element={<ProductCreateScreen />} />
           
 
    

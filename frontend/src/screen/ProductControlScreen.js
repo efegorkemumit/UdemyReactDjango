@@ -13,6 +13,7 @@ const ProductControlScreen = () => {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+  
 
 
   useEffect(() => {
@@ -42,8 +43,12 @@ const ProductControlScreen = () => {
 
   return (
     <div className='container'>
+      <div className='m-top25'>
+
+<Link to={`/products/create`}><Button variant="secondary">Create Product</Button></Link>
+</div>
     <div className='row'>
-      <div className='col-xs-12 col-sm-12'>
+      <div className='col-xs-12 col-sm-12 m-top25'>
       <table className='table'>
   <thead>
     <tr>
