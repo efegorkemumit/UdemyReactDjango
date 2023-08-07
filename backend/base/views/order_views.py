@@ -1,6 +1,6 @@
 from rest_framework import generics, permissions
 from base.models import Cart, CartItem, Order
-from base.serializers import CartSerializer, CartItemSerializer, OrderSerializer
+from base.serializers import CartSerializer, CartItemSerializer, OrderSerializer, CartItemSerializerNoProduct
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -59,7 +59,7 @@ class OrderRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
 def create_cart_items_bulk(request):
 
     if request.method == 'POST':
-        serializer = CartItemSerializer(data=request.data, many=True)
+        serializer = CartItemSerializerNoProduct(data=request.data, many=True)
 
         if serializer.is_valid():
             serializer.save()

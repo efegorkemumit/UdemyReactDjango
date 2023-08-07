@@ -54,6 +54,7 @@ const PlaceOrderScreen = ({ cartItems, removeFromCart, updateQuantity, clearCart
           }
 
           const  OrderResponse  = await axios.post('http://127.0.0.1:8000/api/orders/orders/', orderData, config);
+          window.location.href = '/Success'; 
 
 
 

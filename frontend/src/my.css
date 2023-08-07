@@ -479,13 +479,9 @@
     font-weight: 800;
 }
 .img-product-class{
-    width: 50px !important;
+    width: 50px;
     height: auto
 
-}
-.product-order-sc
-{
-    border: 1px solid #CCC;
 }
 .button-bg{
     background-color: #051559;
