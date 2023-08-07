@@ -612,7 +612,10 @@
     color: #fff;
     font-weight: 800;
   }
-  
+  .control-product{
+    width: 100px !important;
+    height:  auto !important;
+  }
   .app {
     max-width: 1200px;
     margin: 0 auto;
