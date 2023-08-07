@@ -19,6 +19,7 @@ import CategoryScreen from './screen/CategoryScreen';
 import OrderScreen from './screen/OrderScreen';
 import Success from './screen/Success';
 import ProductControlScreen from './screen/ProductControlScreen';
+import ProductUpdateScreen from './screen/ProductUpdateScreen';
 
 function App() {
   
@@ -45,6 +46,7 @@ function App() {
           <Route path="/Order" element={<OrderScreen />} />
           <Route path="/Success" element={<Success />} />
           <Route path="/ProductControl" element={<ProductControlScreen />} />
+          <Route path="/products/update/:id" element={<ProductUpdateScreen />} />
           
 
    

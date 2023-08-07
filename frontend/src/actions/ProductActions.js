@@ -142,14 +142,16 @@ export const updateProduct = (product) => async (dispatch, getState) => {
   try {
     dispatch({ type: PRODUCT_UPDATE_REQUEST });
 
-    const { userInfo } = getState().user;
+    const{
+      userLogin: {userInfo}, 
+    }= getState()
 
     const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
+      headers:{
+        'Content-type': 'application/json',
+        Authorization : `Bearer ${userInfo.token}`
+      }
+    }
 
     const { data } = await axios.put(`http://127.0.0.1:8000/api/products/${product._id}`, product, config);
 

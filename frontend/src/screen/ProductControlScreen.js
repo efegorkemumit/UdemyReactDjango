@@ -66,7 +66,7 @@ const ProductControlScreen = () => {
         <td>
           <Link to={`/products/${product.id}`}><Button variant="secondary">View</Button></Link>
           <Button onClick={()=> handleDelete(product.id, dispatch)} variant="danger">Delete</Button>
-          <Link to={`/products/${product.id}`}><Button variant="info">Update</Button></Link>
+          <Link to={`/products/update/${product.id}`}><Button variant="info">Update</Button></Link>
         </td>
       </tr>
     ))}
