@@ -8,7 +8,7 @@ const ProductCreateScreen = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('5');
 
   const dispatch = useDispatch();
   const history = useNavigate()

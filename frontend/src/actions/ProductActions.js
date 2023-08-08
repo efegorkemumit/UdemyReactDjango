@@ -111,7 +111,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
 };
 
 // Product create action
-export const createProduct = () => async (dispatch, getState) => {
+export const createProduct = (productData) => async (dispatch, getState) => {
   try {
     dispatch({ type: PRODUCT_CREATE_REQUEST });
 
@@ -126,9 +126,10 @@ export const createProduct = () => async (dispatch, getState) => {
       }
     }
 
-    const { data } = await axios.post(`http://127.0.0.1:8000/api/products/create/`, {}, config);
+    const  response  = await axios.post(`http://127.0.0.1:8000/api/products/create/`,productData, config);
+    const createProduct = response.data
 
-    dispatch({ type: PRODUCT_CREATE_SUCCESS, payload: data });
+    dispatch({ type: PRODUCT_CREATE_SUCCESS, payload: createProduct });
   } catch (error) {
     dispatch({
       type: PRODUCT_CREATE_FAIL,
