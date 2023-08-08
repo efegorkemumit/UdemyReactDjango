@@ -35,3 +35,46 @@ export const orderReducer = (state = initialState, action) => {
 };
 
 
+// userReducer.js
+
+const initialStatee = {
+  loading: false,
+  users: [],
+  error: null,
+};
+
+export const userReducer = (state = initialStatee, action) => {
+  switch (action.type) {
+    case types.GET_USERS_REQUEST:
+    case types.DELETE_USER_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case types.GET_USERS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        users: action.payload,
+        error: null,
+      };
+    case types.DELETE_USER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        users: state.users.filter((user) => user.id !== action.payload),
+        error: null,
+      };
+    case types.GET_USERS_FAILURE:
+    case types.DELETE_USER_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+ 

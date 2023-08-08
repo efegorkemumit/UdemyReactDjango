@@ -95,7 +95,7 @@ function Headers() {
             <i className="fa-solid fa-key"></i>  Order
           </NavDropdown.Item>
           </LinkContainer> 
-          <LinkContainer to="/UpdateProfile">
+          <LinkContainer to="/userAdmin">
           <NavDropdown.Item>
             <i className="fa-solid fa-key"></i>  User
           </NavDropdown.Item>
